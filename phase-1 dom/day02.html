@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head><title>Events Practice</title></head>
+<body>
+
+  <button id="btn">Click</button>
+  <input id="textbox" type="text" placeholder="Kuch type karo...">
+  <form id="myForm">
+    <input type="text" placeholder="Form input">
+    <button type="submit">Submit</button>
+  </form>
+  <p id="output">Here result will be displayed</p>
+
+  <script>
+    let output = document.querySelector("#output");
+
+    // 1. Click event
+    document.querySelector("#btn").addEventListener("click", function(e) {
+      output.textContent = "Button clicked! Target: " + e.target.id;
+      output.style.color = "purple";
+    });
+
+    // 2. Keydown event
+    document.querySelector("#textbox").addEventListener("keydown", function(e) {
+      console.log("Key pressed:", e.key);
+      output.textContent = "you clicked on: " + e.key;
+    });
+
+    // 3. Form submit + preventDefault
+    document.querySelector("#myForm").addEventListener("submit", function(e) {
+      e.preventDefault();   // page will not reload
+      output.textContent = "Form is submitted — page will not reload!";
+      output.style.color = "green";
+    });
+  </script>
+
+</body>
+</html>
